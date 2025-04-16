@@ -2,5 +2,10 @@
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     "python.linting.pylintArgs": [],
-    "python.linting.lintOnSave": true
+    "python.linting.lintOnSave": true,
+    "files.exclude": {
+        "**/*.pyc": {"when": "$(basename).py"},
+        "**/__pycache__": true,
+        "**/*.pytest_cache": true,
+    }   
 }
