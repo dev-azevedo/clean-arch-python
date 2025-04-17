@@ -3,7 +3,7 @@
 - Pylint: Manter o padrão de código
 
 
-## Como rodas os testes?
+## Como rodar os testes?
 
 ```bash	
 uv run pytest -s -v

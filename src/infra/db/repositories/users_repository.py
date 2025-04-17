@@ -1,7 +1,9 @@
 from src.infra.db.entities.users import Users as UsersEntity
 from src.infra.db.settings.connection import DBConnectionHandler
+from src.data.interfaces.users_repository import UsersRepository as IUsersRepository
+from src.domain.models.users import Users
 
-class UsersRepository:
+class UsersRepository(IUsersRepository):
     
     @classmethod
     def insert_user(cls, first_name: str, last_name: str, age: int) -> None:
@@ -15,7 +17,7 @@ class UsersRepository:
                 raise e
     
     @classmethod
-    def select_user(cls, first_name: str) -> any:
+    def select_user(cls, first_name: str) -> list[Users]:
         with DBConnectionHandler() as database:
             try: 
                 users = (
