@@ -7,7 +7,7 @@ class UserFinder(IUserFinder):
         self.__users_repository = users_repository
     
     def find(self, first_name: str) -> dict: 
-        self.__validade_first_name(first_name)
+        self.__validade_name(first_name)
         
         users =self.__serch_user(first_name)
         
@@ -16,7 +16,7 @@ class UserFinder(IUserFinder):
         return response       
     
     @classmethod
-    def __validade_first_name(cls, first_name: str) -> None:
+    def __validade_name(cls, first_name: str) -> None:
         if not first_name.isalpha():
             raise Exception("First name must be a string")
         
