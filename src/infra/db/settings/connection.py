@@ -1,15 +1,23 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from decouple import config
+
+USER_DB = config("USER_DB")
+PASS_DB = config("PASS_DB")
+HOST_DB = config("HOST_DB")
+PORT_DB = config("PORT_DB")
+NAME_DB = config("NAME_DB")
+
 
 class DBConnectionHandler:
     def __init__(self) -> None:
         self.__conneciton_string = "{}://{}:{}@{}:{}/{}".format(
             "mysql+pymysql",
-            "root",
-            "root",
-            "localhost",
-            3306,
-            "clean_database",
+            USER_DB,
+            PASS_DB,
+            HOST_DB,
+            PORT_DB,
+            NAME_DB,
         )
         self.__engine = self.__create_database__engine()
         self.session = None
