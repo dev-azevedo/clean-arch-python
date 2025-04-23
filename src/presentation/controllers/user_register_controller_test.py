@@ -16,10 +16,7 @@ def test_handle():
     use_case = UserRegisterSpy()
     user_register_controller = UserRegisterController(use_case=use_case)
     
-    response = user_register_controller.handle(request=http_request_mock)
-    
-    print(response.body)
-    
+    response = user_register_controller.handle(http_request=http_request_mock)
     assert isinstance(response, IHttpResponse)
-    assert response.status_code == 200
+    assert response.status_code == 201
     assert response.body["data"] is not None

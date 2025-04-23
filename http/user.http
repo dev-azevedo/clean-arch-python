@@ -1,12 +1,12 @@
 ###
-GET http://127.0.0.1:5500/user/finder?first_name=jho
+GET http://127.0.0.1:5500/user/finder?first_name=jhow
 
 ###
 POST http://127.0.0.1:5500/user/register
 Content-Type: application/json
 
 {
-    "first_name": "Jhow",
+    "first_name": "Jhow123123",
     "last_name": "Henrique",
     "age": 26
 }

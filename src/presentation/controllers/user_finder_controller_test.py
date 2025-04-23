@@ -12,7 +12,7 @@ def test_handle():
     use_case = UserFinderSpy()
     user_finder_controller = UserFinderController(use_case=use_case)
     
-    response = user_finder_controller.handle(request=http_request_mock)
+    response = user_finder_controller.handle(http_request=http_request_mock)
     
     assert isinstance(response, IHttpResponse)
     assert response.status_code == 200

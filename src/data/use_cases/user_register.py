@@ -1,5 +1,7 @@
 from src.domain.user_cases.user_register import UserRegister as IUserRegister
 from src.data.interfaces.users_repository import IUsersRepository
+from src.errors.types import HttpBadRequestError
+
 class UserRegister(IUserRegister):
     def __init__(self, users_repository: IUsersRepository) -> None:
         self.__users_repository = users_repository
@@ -17,10 +19,10 @@ class UserRegister(IUserRegister):
     @classmethod
     def __validade_name(cls, first_name: str) -> None:
         if not first_name.isalpha():
-            raise Exception("First name must be a string")
+            raise HttpBadRequestError("First name must be a string")
         
         if len(first_name) > 18:
-            raise Exception("First name must be less than 18 characters")
+            raise HttpBadRequestError("First name must be less than 18 characters")
         
     def __registry_user_information(self, first_name: str, last_name: str, age: int) -> None:
         self.__users_repository.insert_user(first_name=first_name, last_name=last_name, age=age)
