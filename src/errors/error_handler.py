@@ -1,8 +1,8 @@
 from src.presentation.htttp_types.http_response import HttpResponse
-from .types import HttpBadRequestError, HttpNotFoundError
+from .types import HttpBadRequestError, HttpNotFoundError, HttpUnprocessableEntityError
 
 def handle_errors(error: Exception) -> HttpResponse:
-    if isinstance(error, (HttpBadRequestError, HttpNotFoundError)):
+    if isinstance(error, (HttpBadRequestError, HttpNotFoundError, HttpUnprocessableEntityError)):
         return HttpResponse(
             status_code=error.status_code, 
             body={"errors": [

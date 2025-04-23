@@ -1,10 +1,28 @@
 # clean_arch
 
-- Pylint: Manter o padrão de código
+Main libs:
+- Flask
+- SQLAlchemy
+- Pytest
+- Cerberus
 
 
-## Como rodar os testes?
+## How to run tests?
 
 ```bash	
 uv run pytest -s -v
+```
+
+## Errors:
+
+Standard format error: 
+```bash
+{
+    "errors": [
+        {
+            "title": "BadRequest",
+            "detail": "First name must be a string"
+        }
+    ]
+}
 ```

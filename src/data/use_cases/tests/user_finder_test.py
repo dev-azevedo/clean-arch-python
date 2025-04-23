@@ -1,4 +1,4 @@
-from .user_finder import UserFinder
+from src.data.use_cases.user_finder import UserFinder
 from src.infra.db.tests.users_repository import UsersRepositorySpy
 
 def test_find():
