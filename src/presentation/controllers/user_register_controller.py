@@ -8,11 +8,11 @@ class UserRegisterController(IController):
     def __init__(self, use_case: IUserRegister) -> None:
         self.__use_case = use_case
         
-    def handle(self, request: HttpRequest) -> HttpResponse:
-        first_name = request.body["first_name"]
-        last_name = request.body["last_name"]
-        age = request.body["age"]
+    def handle(self, http_request: HttpRequest) -> HttpResponse:
+        first_name = http_request.body["first_name"]
+        last_name = http_request.body["last_name"]
+        age = http_request.body["age"]
         
         response = self.__use_case.register(first_name=first_name, last_name=last_name, age=age)
         
-        return HttpResponse(status_code=200, body={"data": response})
+        return HttpResponse(status_code=201, body={"data": response})
