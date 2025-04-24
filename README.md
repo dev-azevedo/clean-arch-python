@@ -32,6 +32,22 @@ After git clone, installing uv and mysql, configure the db connection string. Cr
 uv run run.py
 ```
 
+## 🔨 Features:
+- Find User
+- Create User
+
+There is a file in the [http/user.http](./http/user.http) folder with the test requests.
+
+### 🚧 Endpoints:
+- GET /user/finder?first_name=
+- POST /user/register
+{
+    "first_name": "",
+    "last_name": "",
+    "age": 0
+}
+
+
 ## 🧪 How to run tests?
 
 ```bash	
@@ -89,5 +105,7 @@ uv run pytest -s -v
     ]
 }
 ```
+
+---
 
 ### ✌🏼 [@dev-azevedo](https://www.linkedin.com/in/dev-azevedo/)
